@@ -97,7 +97,7 @@ def main():
     if use_skf:
         with st.spinner("Running Switching Kalman Filter..."):
             observations = returns**2
-            from kbv.models.kalman import KalmanFilter
+            # from kbv.models.kalman import KalmanFilter
 
             kf_low = KalmanFilter(
                 F=np.array([[0.95]]), H=np.array([[1.0]]),
