@@ -66,7 +66,7 @@ class BayesianStochasticVolatility:
         _, h_tilde_seq = scan(
             transition, h_tilde_0, None, length=T - 1
         )
-        h_tilde_seq = jnp.concatenate([[h_tilde_0], h_tilde_seq])
+        h_tilde_seq = jnp.concatenate([jnp.expand_dims(h_tilde_0, 0), h_tilde_seq])
 
         # Transform to log-volatility
         h_seq = numpyro.deterministic("h", mu + sigma * h_tilde_seq)
